@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #06b6d4;
+  --accent-2: #8b5cf6;
+  --border: rgba(2,6,23,0.06);
+  --input-bg: #ffffff;
+}
+
+.dark{
+  --bg: #0b1020;
+  --panel: #0f1724;
+  --text: #d694e7;
+  --muted: #626b77;
+  --accent: #06b6d4;
+  --accent-2: #8b5cf6;
+  --border: rgba(255,255,255,0.06);
+  --input-bg: #0b1220;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card{
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  border: 1px solid var(--border);
+}
+
+.accent{
+  color: var(--accent);
+}
+
+.btn-accent{
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color: white;
+  box-shadow: 0 6px 16px rgba(6,182,212,0.12);
+}
+
+.pill-btn{
+  @apply w-9 h-9 flex items-center justify-center rounded-full border bg-white/80 dark:bg-white/5 shadow-sm hover:shadow-md transition-colors;
+}
+
+.text-muted { color: var(--muted); }
+
+/* Inputs and textareas use panel background and visible borders */
+input, textarea, select {
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Small helper to ensure readable small text */
+.text-small { font-size: .9rem; color: var(--muted); }
+
+/* Ensure links/buttons have sufficient contrast */
+a, button { color: var(--text); }
+
+/* Focus outlines for keyboard accessibility */
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: 3px solid rgba(6,182,212,0.12);
+  outline-offset: 2px;
+}
+
+/* Floating action button for mobile */
+.fab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 50;
+}
+
+/* SVG images should inherit color when appropriate */
+img[src$='.svg'] { color: inherit; }
+
